@@ -6,10 +6,14 @@ import com.hxl.jugelizidemo.service.AccountSaveService;
 
 public class AccountSaveServiceImpl implements AccountSaveService{
 	
-	private AccountSaveDao accountSaveDao = new AccountSaveDaoImpl();
+	private AccountSaveDao accountSaveDao ;
 
+	private AccountSaveServiceImpl(){
+		System.out.println("对象创建了!");
+	}
 	public void saveAccount(){
-		accountSaveDao.saveAccount();
+		//accountSaveDao.saveAccount();
+		System.out.println("AccountSaveServiceImpl 中的方法执行了!!!");
 	}
 	
 }
