@@ -34,10 +34,12 @@ public class UIClient {
 		* */
 	public static void main(String[] args){
 		//1.获取核心容器对象
-		ApplicationContext ac = new ClassPathXmlApplicationContext("bean.xml");
+		//ApplicationContext ac = new ClassPathXmlApplicationContext("bean.xml");
+		ClassPathXmlApplicationContext ac = new ClassPathXmlApplicationContext("bean.xml");
 		//2.根据id获取bean对象
 		AccountSaveService ass  = (AccountSaveService)ac.getBean("accountSaveService");
 		ass.saveAccount();
+		ac.close();
 	}
 
 }
