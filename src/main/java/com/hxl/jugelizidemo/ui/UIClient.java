@@ -4,14 +4,10 @@
 package com.hxl.jugelizidemo.ui;
 
 
-import com.hxl.jugelizidemo.ado.AccountSaveDao;
-import com.hxl.jugelizidemo.ado.impl.AccountSaveDaoImpl;
 import com.hxl.jugelizidemo.service.AccountSaveService;
-import com.hxl.jugelizidemo.service.impl.AccountSaveServiceImpl;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.context.support.FileSystemXmlApplicationContext;
+
 
 /**
  * 
@@ -38,6 +34,8 @@ public class UIClient {
 		ClassPathXmlApplicationContext ac = new ClassPathXmlApplicationContext("bean.xml");
 		//2.根据id获取bean对象
 		AccountSaveService ass  = (AccountSaveService)ac.getBean("accountSaveService");
+		AccountSaveService ass1  = (AccountSaveService)ac.getBean("accountSaveService");
+		System.out.println(ass.equals(ass1));
 		ass.saveAccount();
 		ac.close();
 	}
