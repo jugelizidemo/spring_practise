@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
-       <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
-       <!--xsi:schemaLocation="http://www.springframework.org/schema/beans-->
-        <!--https://www.springframework.org/schema/beans/spring-beans.xsd">-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">-->
 
     <!--******************************************************-->
     <!--创建bean的三种方式-->
@@ -117,6 +117,50 @@
     <!--Spring中基于注解的IOC-->
     <!--要告知spring在创建容器时要扫描的包,配置所需要的标签不是在bean的约束中,而是一个名称为context名称空间和约束中-->
 
+    <!--<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
+
+    &lt;!&ndash;扫描jugelizidemo包下及其子包中所有类上的注解&ndash;&gt;
+    <context:component-scan base-package="com.hxl.jugelizidemo"></context:component-scan>-->
+
+
+    <!--******************************************************-->
+    <!--XML配置IOC容器进行CRUD实践-->
+
+    <!--配置service-->
+ <!--   <bean id="accountService" class="org.hxl.jugelizidemo.service.impl.AccountServiceImpl">
+        &lt;!&ndash;注入DAO对象&ndash;&gt;
+        <property name="accountDao" ref = "accountDao"></property>
+    </bean>
+
+    &lt;!&ndash;配置Dao&ndash;&gt;
+    <bean id ="accountDao" class="org.hxl.jugelizidemo.dao.impl.AccountDaoImpl">
+        <property name="runner" ref ="runner"></property>
+    </bean>
+
+    &lt;!&ndash;配置QueryRunner&ndash;&gt;&lt;!&ndash;生成多例的数据&ndash;&gt;
+    <bean id = "runner" class="org.apache.commons.dbutils.QueryRunner" scope="prototype">
+        &lt;!&ndash;注入数据源:构造函数注入&ndash;&gt;
+        <constructor-arg name = "ds" ref ="dataSource"></constructor-arg>
+    </bean>
+
+    &lt;!&ndash;配置数据源&ndash;&gt;
+    <bean id = "dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        &lt;!&ndash;连接数据库的必备信息&ndash;&gt;
+        <property name="driverClass" value = "com.mysql.jdbc.Driver"></property>
+        <property name="jdbcUrl" value = "jdbc:mysql://localhost:3306/hxl"></property>
+        <property name="user" value ="root"></property>
+        <property name="password" value ="claacgs"></property>
+    </bean>-->
+
+    <!--******************************************************-->
+    <!--注解配置IOC容器进行CRUD实践-->
+
     <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
@@ -125,7 +169,22 @@
         http://www.springframework.org/schema/context
         https://www.springframework.org/schema/context/spring-context.xsd">
 
+
+    <bean id = "runner" class="org.apache.commons.dbutils.QueryRunner" scope="prototype">
+        <!--&lt;!&ndash;注入数据源:构造函数注入&ndash;&gt;-->
+        <constructor-arg name = "ds" ref ="dataSource"></constructor-arg>
+    </bean>
+
+   <!-- &lt;!&ndash;配置数据源&ndash;&gt;-->
+    <bean id = "dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <!--&lt;!&ndash;连接数据库的必备信息&ndash;&gt;-->
+        <property name="driverClass" value = "com.mysql.jdbc.Driver"></property>
+        <property name="jdbcUrl" value = "jdbc:mysql://localhost:3306/hxl"></property>
+        <property name="user" value ="root"></property>
+        <property name="password" value ="claacgs"></property>
+    </bean>
+
     <!--扫描jugelizidemo包下及其子包中所有类上的注解-->
-    <context:component-scan base-package="com.hxl.jugelizidemo"></context:component-scan>
+    <context:component-scan base-package="org.hxl.jugelizidemo"></context:component-scan>
 
 </beans>
