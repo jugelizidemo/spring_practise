@@ -8,7 +8,7 @@ package config;
 *       @Configuration
 *           作用:指定当前类是一个配置类
 *       @ComponentScan
-*           作用:用于通过注解指定Spirng在创建IOC容器时应该扫描的包路径
+*           作用:用于通过注解指定Spring在创建IOC容器时应该扫描的包路径
 *               使用了该注解就等同于在bean.xml中配置了
 *               <context:component-scan base-package="org.hxl.jugelizidemo"></context:component-scan>
 *       @Bean
@@ -17,17 +17,27 @@ package config;
 *           细节:当使用注解配置方法时,如果方法有参数,Spring框架回去ioc容器中查找有没有可用的bean对象
 *               查找的方式和Autowired注解的方式一致
 *
+*       @Import
+*           作用:用于导入其他配置类
+*           属性:用于指定其他配置类的字节码,有import注解的类就是父配置类,导入的都是子配置类
+*
+*
+*        @propertySource
+*           作用:用于指定properties文件的位置
+*           属性:指定文件的名称与路径
+*
 * */
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.apache.commons.dbutils.QueryRunner;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.*;
+
 import javax.sql.DataSource;
 
 @Configuration
 @ComponentScan("edu.hxl.jugelizidemo")
+@Import(JdbcConfig.class)
+@PropertySource("classpath:jdbcConfig.properties")
 public class SpringConfiguration {
 
 /*      <bean id = "runner" class="org.apache.commons.dbutils.QueryRunner" scope="prototype">
@@ -38,28 +48,5 @@ public class SpringConfiguration {
         因此如果通过注解直接得到bean对象的话,只有构造函数还是不够的,构造函数只是解决了Value的问题,key需要用别的方式指定
 */
 
-    /*
-    * 创建QueryRunner查询对象
-    * */
-    @Bean(name = "runner")
-    public QueryRunner createQueryRunner(DataSource dataSource){
-        return new QueryRunner(dataSource);
-    }
 
-    /*
-    * 创建数据源对象
-    * */
-    @Bean(name = "dataSource")
-    public DataSource createDataSource(){
-        try{
-            ComboPooledDataSource ds = new ComboPooledDataSource();
-            ds.setDriverClass("com.mysql.jdbc.Driver");
-            ds.setJdbcUrl("jdbc:mysql://localhost:3306/hxl");
-            ds.setUser("root");
-            ds.setPassword("claacgs");
-            return ds;
-        }catch (Exception e){
-            throw  new RuntimeException(e);
-        }
-    }
 }
