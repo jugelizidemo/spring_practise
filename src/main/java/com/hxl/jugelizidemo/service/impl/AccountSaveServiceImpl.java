@@ -2,14 +2,9 @@ package com.hxl.jugelizidemo.service.impl;
 
 import com.hxl.jugelizidemo.ado.AccountSaveDao;
 import com.hxl.jugelizidemo.service.AccountSaveService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;

@@ -3,9 +3,7 @@
  */
 package com.hxl.jugelizidemo.ui;
 
-
 import com.hxl.jugelizidemo.service.AccountSaveService;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 

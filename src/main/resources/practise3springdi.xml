@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--spring的依赖注入
+        依赖注入:
+            Dependency injection
+        IOC的作用:
+            降低程序间的耦合
+        依赖关系的管理:
+            都交给spring来维护
+        在当前类需要用到其他类的对象时,由spring为我们提供,我们只需要在配置文件中说明依赖关系
+        依赖注入:
+            能注入的数据:三种
+                基本类型和String
+                其他的bean类型(配置文件或者注解配置过的bean)
+                复杂类型/集合类型
+            注入的方式:三种
+                构造函数注入
+                set方法注入
+                使用注解注入 -->
+
+    <!--构造函数注入,使用标签constructor-arg,
+        标签在bean标签内部,
+        标签中的属性:
+        1.type:指定要注入的数据类型,对应构造器中某个参数类型
+        2.index:指定要注入的数据给构造函数中指定索引的参数赋值,索引从0开始
+        3.name:指定构造器中指定名字的参数赋值
+        4:value:用于给基本类型与String类型的数据
+        5:ref:用于指定其他的在Spring IOC核心容器中出现过的bean对象
+
+        优势:
+            在获取bean对象时,注入数据是必须的操作,否则无法创建成功
+        弊端:
+            改变了bean对象的实例化方式(缩小了bean对象实例化的手段) -->
+
+   <!--  <bean id = "accountService" class="net.practise3.springdi.service.impl.AccountServiceImpl">
+         <constructor-arg name = "name" value = "举个栗子demo"></constructor-arg>
+         <constructor-arg name = "age" value = "30"></constructor-arg>
+         <constructor-arg name = "birthday" ref = "date"></constructor-arg>
+     </bean>-->
+    <!--构建日期bean-->
+    <!-- <bean id = "date" class="java.util.Date"></bean>-->
+
+
+    <!--set方法注入             更常用的构建方式
+        涉及的标签:property
+        出现的位置:bean标签内部
+        标签的属性
+                1.name:指定注入时所调用的set方法
+                2:value:用于提供基本类型与String类型的数据
+                3:ref:用于指定其他的在Spring IOC核心容器中出现过的bean对象
+         优势:
+            创建对象时没有明显限制,可以直接使用默认构造函数
+         弊端:
+            如果某个成员明确有值,则获取对象时,有可能set方法没有执行,导致成员数值为nul
+        -->
+    <bean id="accountService" class="net.practise3.springdi.service.impl.AccountServiceImpl">
+        <property name="name" value = "举个栗子demo"></property>
+        <property name="age" value = "20"></property>
+        <property name="birthday" ref="date"></property>
+    </bean>
+
+    <!--构建日期bean-->
+     <bean id = "date" class="java.util.Date"></bean>
+
+  </beans>
