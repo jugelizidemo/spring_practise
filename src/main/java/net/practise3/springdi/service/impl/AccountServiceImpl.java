@@ -13,6 +13,7 @@ public class AccountServiceImpl implements AccountService {
 
     private String name;
     private Integer age;
+    private Date birthday;
 
     public void setName(String name) {
         this.name = name;
@@ -26,8 +27,6 @@ public class AccountServiceImpl implements AccountService {
         this.birthday = birthday;
     }
 
-    private Date birthday;
-
     @Override
     public String toString() {
         return "AccountServiceImpl{" +
@@ -36,6 +35,8 @@ public class AccountServiceImpl implements AccountService {
                 ", birthday=" + birthday +
                 '}';
     }
+
+    public AccountServiceImpl(){}
 
     public AccountServiceImpl(String name, Integer age, Date birthday){
         this.name = name;
