@@ -1,4 +1,4 @@
-package net.practise5.springxmlcrud.domain;
+package net.practise6.springannocrud.domain;
 
 /**
  * Created by admin on 2019/6/13.

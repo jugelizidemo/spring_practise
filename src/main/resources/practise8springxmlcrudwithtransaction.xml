@@ -8,20 +8,22 @@
     <!--XML配置IOC容器进行CRUD实践-->
 
     <!--配置service-->
-       <bean id="accountService" class="net.practise5.springxmlcrud.service.impl.AccountServiceImpl">
+       <bean id="accountService" class="net.practise8.springxmlcrudwithtransaction.service.impl.AccountServiceImpl">
            <!--注入DAO对象-->
            <property name="accountDao" ref = "accountDao"></property>
+           <property name="transactionManager" ref = "transactionManager"></property>
        </bean>
 
        <!--配置Dao-->
-       <bean id ="accountDao" class="net.practise5.springxmlcrud.dao.impl.AccountDaoImpl">
+       <bean id ="accountDao" class="net.practise8.springxmlcrudwithtransaction.dao.impl.AccountDaoImpl">
            <property name="runner" ref ="runner"></property>
+           <property name="connecitonUtils" ref="connecitonUtils"></property>
        </bean>
 
        <!--配置QueryRunner--><!--生成多例的数据-->
        <bean id = "runner" class="org.apache.commons.dbutils.QueryRunner" scope="prototype">
            <!--注入数据源:构造函数注入-->
-           <constructor-arg name = "ds" ref ="dataSource"></constructor-arg>
+           <!--<constructor-arg name = "ds" ref ="dataSource"></constructor-arg>-->
        </bean>
 
        <!--配置数据源-->
@@ -34,4 +36,13 @@
            <property name="password" value ="1988926he"></property>
        </bean>
 
+    <!--配置ConnectionUtils工具类-->
+        <bean id = "connecitonUtils" class = "net.practise8.springxmlcrudwithtransaction.utils.ConnecitonUtils">
+            <property name="dataSource" ref="dataSource"></property>
+        </bean>
+
+    <!--配置事务管理器-->
+    <bean id = "transactionManager" class="net.practise8.springxmlcrudwithtransaction.utils.TransactionManager">
+        <property name="connecitonUtils" ref="connecitonUtils"></property>
+    </bean>
 </beans>

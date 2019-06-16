@@ -1,6 +1,6 @@
-package net.practise5.springxmlcrud.service;
+package net.practise8.springxmlcrudwithtransaction.service;
 
-import net.practise5.springxmlcrud.domain.Account;
+import net.practise8.springxmlcrudwithtransaction.domain.Account;
 
 import java.util.List;
 
@@ -18,4 +18,6 @@ public interface AccountService {
     void updateAccount(Account account);
 
     void deleteAccount(Integer accountId);
+
+    void transfer(String  sourceName,String desName,Float money);
 }

@@ -1,13 +1,14 @@
-package net.practise5.springxmlcrud.service;
+package net.practise6.springannocrud.dao;
 
-import net.practise5.springxmlcrud.domain.Account;
+
+import net.practise6.springannocrud.domain.Account;
 
 import java.util.List;
 
 /**
  * Created by admin on 2019/6/13.
  */
-public interface AccountService {
+public interface AccountDao {
 
     List<Account> findAllAccount();
 

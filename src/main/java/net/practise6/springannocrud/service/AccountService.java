@@ -1,6 +1,6 @@
-package net.practise5.springxmlcrud.service;
+package net.practise6.springannocrud.service;
 
-import net.practise5.springxmlcrud.domain.Account;
+import net.practise6.springannocrud.domain.Account;
 
 import java.util.List;
 

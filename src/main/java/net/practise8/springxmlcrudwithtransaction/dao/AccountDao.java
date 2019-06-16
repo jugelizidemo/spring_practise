@@ -1,13 +1,14 @@
-package net.practise5.springxmlcrud.service;
+package net.practise8.springxmlcrudwithtransaction.dao;
 
-import net.practise5.springxmlcrud.domain.Account;
+
+import net.practise8.springxmlcrudwithtransaction.domain.Account;
 
 import java.util.List;
 
 /**
  * Created by admin on 2019/6/13.
  */
-public interface AccountService {
+public interface AccountDao {
 
     List<Account> findAllAccount();
 
@@ -18,4 +19,6 @@ public interface AccountService {
     void updateAccount(Account account);
 
     void deleteAccount(Integer accountId);
+
+    Account findAccountByName(String name);
 }

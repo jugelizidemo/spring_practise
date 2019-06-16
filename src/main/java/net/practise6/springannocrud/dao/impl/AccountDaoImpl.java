@@ -1,23 +1,23 @@
-package net.practise5.springxmlcrud.dao.impl;
+package net.practise6.springannocrud.dao.impl;
 
-import net.practise5.springxmlcrud.dao.AccountDao;
-import net.practise5.springxmlcrud.domain.Account;
+import net.practise6.springannocrud.dao.AccountDao;
+import net.practise6.springannocrud.domain.Account;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 /**
  * Created by admin on 2019/6/13.
  */
+
+@Repository("accountDao")
 public class AccountDaoImpl implements AccountDao {
 
-
-    public void setRunner(QueryRunner runner) {
-        this.runner = runner;
-    }
-
+    @Autowired
     private QueryRunner runner;
 
     public List<Account> findAllAccount() {

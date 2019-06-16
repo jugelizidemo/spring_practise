@@ -1,4 +1,4 @@
-package net.practise5.springxmlcrud.domain;
+package net.practise8.springxmlcrudwithtransaction.domain;
 
 /**
  * Created by admin on 2019/6/13.
