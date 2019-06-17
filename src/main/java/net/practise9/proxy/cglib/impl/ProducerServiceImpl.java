@@ -1,11 +1,9 @@
-package net.practise9.proxy.Service.impl;
-
-import net.practise9.proxy.Service.ProducerService;
+package net.practise9.proxy.cglib.impl;
 
 /**
  * Created by admin on 2019/6/16.
  */
-public class ProducerServiceImpl implements ProducerService {
+public class ProducerServiceImpl {
 
     /*
     销售

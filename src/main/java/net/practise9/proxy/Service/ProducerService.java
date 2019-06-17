@@ -10,10 +10,10 @@ public interface ProducerService {
     /*
     销售
     * */
-    public  void saleProduct(float money);
+      void saleProduct(float money);
 
     /*
     * 售后
     * */
-    public  void afterservice(float money);
+      void afterservice(float money);
 }
