@@ -19,7 +19,6 @@ public class AccountServiceImpl implements AccountService {
 
     private AccountDao accountDao;
 
-
     public List<Account> findAllAccount() {
         return  accountDao.findAllAccount();
     }
@@ -51,7 +50,7 @@ public class AccountServiceImpl implements AccountService {
             des.setMoney(des.getMoney() + money);
             //2.5.更新转出账户
             accountDao.updateAccount(source);
-            //int i =  1 / 0;
+            int i =  1 / 0;
             //2.6.更新转入账户
             accountDao.updateAccount(des);
         System.out.println("转账结束...");

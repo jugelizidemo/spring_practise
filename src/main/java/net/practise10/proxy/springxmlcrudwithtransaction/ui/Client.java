@@ -9,8 +9,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Client {
 
-
-
     public static void main(String[] args) {
         ApplicationContext ac = new ClassPathXmlApplicationContext("practise10proxyspringxmlcrudwithtransaction.xml");
         AccountService as = (AccountService)ac.getBean("accountServiceProxy");
