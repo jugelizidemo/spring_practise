@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!--XML配置IOC容器进行CRUD实践-->
+
+    <!--配置proxyBeanFactory-->
+    <bean id ="proxyBeanFactory" class="net.practise10.proxy.springxmlcrudwithtransaction.beanfactory.ProxyFactory">
+        <!--注入Service-->
+        <property name="accountService" ref = "accountService"></property>
+        <property name="transactionManager" ref="transactionManager"></property>
+    </bean>
+
+    <!--配置代理的service-->
+    <bean id="accountServiceProxy" factory-bean="proxyBeanFactory" factory-method="getAccountService"></bean>
+
+
+    <!--配置service-->
+       <bean id="accountService" class="net.practise10.proxy.springxmlcrudwithtransaction.service.impl.AccountServiceImpl">
+           <!--注入DAO对象-->
+           <property name="accountDao" ref = "accountDao"></property>
+<!--           <property name="transactionManager" ref = "transactionManager"></property>-->
+       </bean>
+
+       <!--配置Dao-->
+       <bean id ="accountDao" class="net.practise10.proxy.springxmlcrudwithtransaction.dao.impl.AccountDaoImpl">
+           <property name="runner" ref ="runner"></property>
+           <property name="connecitonUtils" ref="connecitonUtils"></property>
+       </bean>
+
+       <!--配置QueryRunner--><!--生成多例的数据-->
+       <bean id = "runner" class="org.apache.commons.dbutils.QueryRunner" scope="prototype">
+           <!--注入数据源:构造函数注入-->
+           <!--<constructor-arg name = "ds" ref ="dataSource"></constructor-arg>-->
+       </bean>
+
+       <!--配置数据源-->
+       <bean id = "dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+           <!--连接数据库的必备信息-->
+           <property name="driverClass" value = "com.mysql.jdbc.Driver"></property>
+           <property name="jdbcUrl" value = "jdbc:mysql://localhost:3306/hxl"></property>
+           <property name="user" value ="root"></property>
+           <property name="password" value ="claacgs"></property>
+           <!--<property name="password" value ="1988926he"></property>-->
+       </bean>
+
+    <!--配置ConnectionUtils工具类-->
+        <bean id = "connecitonUtils" class = "net.practise10.proxy.springxmlcrudwithtransaction.utils.ConnecitonUtils">
+            <property name="dataSource" ref="dataSource"></property>
+        </bean>
+
+    <!--配置事务管理器-->
+    <bean id = "transactionManager" class="net.practise10.proxy.springxmlcrudwithtransaction.utils.TransactionManager">
+        <property name="connecitonUtils" ref="connecitonUtils"></property>
+    </bean>
+</beans>

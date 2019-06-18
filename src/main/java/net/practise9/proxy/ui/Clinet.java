@@ -36,7 +36,8 @@ public class Clinet {
         *                           此接口的实现类都是谁用谁写的
         *
         * */
-        ProducerService proxyProducerService  = (ProducerService) Proxy.newProxyInstance(producerService.getClass().getClassLoader(),
+        ProducerService proxyProducerService  = (ProducerService) Proxy.newProxyInstance(
+                producerService.getClass().getClassLoader(),
                 producerService.getClass().getInterfaces(),
                 new InvocationHandler() {
                     /**
