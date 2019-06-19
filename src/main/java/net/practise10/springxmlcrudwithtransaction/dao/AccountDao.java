@@ -1,13 +1,14 @@
-package net.practise10.proxy.springxmlcrudwithtransaction.service;
+package net.practise10.springxmlcrudwithtransaction.dao;
 
-import net.practise10.proxy.springxmlcrudwithtransaction.domain.Account;
+
+import net.practise10.springxmlcrudwithtransaction.domain.Account;
 
 import java.util.List;
 
 /**
  * Created by admin on 2019/6/13.
  */
-public interface AccountService {
+public interface AccountDao {
 
     List<Account> findAllAccount();
 
@@ -19,5 +20,5 @@ public interface AccountService {
 
     void deleteAccount(Integer accountId);
 
-    void transfer(String sourceName, String desName, Float money);
+    Account findAccountByName(String name);
 }

@@ -1,7 +1,7 @@
-package net.practise10.proxy.springxmlcrudwithtransaction.ui;
+package net.practise10.springxmlcrudwithtransaction.ui;
 
 
-import net.practise10.proxy.springxmlcrudwithtransaction.service.AccountService;
+import net.practise10.springxmlcrudwithtransaction.service.AccountService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

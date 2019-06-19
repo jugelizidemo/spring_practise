@@ -1,9 +1,9 @@
-package net.practise10.proxy.springxmlcrudwithtransaction.service.impl;
+package net.practise10.springxmlcrudwithtransaction.service.impl;
 
 
-import net.practise10.proxy.springxmlcrudwithtransaction.dao.AccountDao;
-import net.practise10.proxy.springxmlcrudwithtransaction.domain.Account;
-import net.practise10.proxy.springxmlcrudwithtransaction.service.AccountService;
+import net.practise10.springxmlcrudwithtransaction.dao.AccountDao;
+import net.practise10.springxmlcrudwithtransaction.domain.Account;
+import net.practise10.springxmlcrudwithtransaction.service.AccountService;
 
 import java.util.List;
 

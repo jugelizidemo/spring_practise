@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+    <!--配置springIOC容器中的bean-->
+    <bean id = "accountService" class="net.practise11.springaop.service.impl.AccountServiceImpl"></bean>
+
+    <!--spring中基于xml的AOP配置步骤
+    1.将通知的bean交给spinrg管理
+    2.使用aop:config标签表明开始AOP的配置
+    3.使用aop:aspect标签表明配置切面
+            id属性:切面的唯一标识
+            ref属性:引用的通知类bean的id
+    4.在aop:aspect标签的内部使用对应的标签类配置通知(advice)的类型
+            aop:before:前置通知
+                method属性:用于指定logger类中哪个方法作为前置通知
+                pointcut属性:用于指定切入点表达式,表示对业务中的哪些方法增强
+                切入点表达式语法:
+                    关键字:execution(表达式)
+                    表达式:访问修饰符 返回值 包名.类名.方法名(参数列表)
+                    标准写法:public void net.practise11.springaop.service.impl.AccountServiceImpl.saveAccount()
+    -->
+
+    <!--配置Logger类-->
+    <bean id="logger" class="net.practise11.springaop.utils.Logger"></bean>
+
+    <!--配置AOP-->
+    <aop:config>
+        <aop:aspect id = "logAdvice" ref = "logger">
+            <!--配置通知的类型,并且建立通知方法和切入点方法的关联-->
+            <aop:before method="printLog" pointcut="execution(public void net.practise11.springaop.service.impl.AccountServiceImpl.saveAccount())"></aop:before>
+        </aop:aspect>
+    </aop:config>
+
+
+</beans>

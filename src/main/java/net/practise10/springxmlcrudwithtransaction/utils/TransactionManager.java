@@ -1,4 +1,4 @@
-package net.practise10.proxy.springxmlcrudwithtransaction.utils;
+package net.practise10.springxmlcrudwithtransaction.utils;
 
 /**
  * Created by admin on 2019/6/16.

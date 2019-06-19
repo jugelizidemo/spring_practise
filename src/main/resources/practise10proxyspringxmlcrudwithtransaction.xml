@@ -8,7 +8,7 @@
     <!--XML配置IOC容器进行CRUD实践-->
 
     <!--配置proxyBeanFactory-->
-    <bean id ="proxyBeanFactory" class="net.practise10.proxy.springxmlcrudwithtransaction.beanfactory.ProxyFactory">
+    <bean id ="proxyBeanFactory" class="net.practise10.springxmlcrudwithtransaction.beanfactory.ProxyFactory">
         <!--注入Service-->
         <property name="accountService" ref = "accountService"></property>
         <property name="transactionManager" ref="transactionManager"></property>
@@ -19,14 +19,14 @@
 
 
     <!--配置service-->
-       <bean id="accountService" class="net.practise10.proxy.springxmlcrudwithtransaction.service.impl.AccountServiceImpl">
+       <bean id="accountService" class="net.practise10.springxmlcrudwithtransaction.service.impl.AccountServiceImpl">
            <!--注入DAO对象-->
            <property name="accountDao" ref = "accountDao"></property>
 <!--           <property name="transactionManager" ref = "transactionManager"></property>-->
        </bean>
 
        <!--配置Dao-->
-       <bean id ="accountDao" class="net.practise10.proxy.springxmlcrudwithtransaction.dao.impl.AccountDaoImpl">
+       <bean id ="accountDao" class="net.practise10.springxmlcrudwithtransaction.dao.impl.AccountDaoImpl">
            <property name="runner" ref ="runner"></property>
            <property name="connecitonUtils" ref="connecitonUtils"></property>
        </bean>
@@ -48,12 +48,12 @@
        </bean>
 
     <!--配置ConnectionUtils工具类-->
-        <bean id = "connecitonUtils" class = "net.practise10.proxy.springxmlcrudwithtransaction.utils.ConnecitonUtils">
+        <bean id = "connecitonUtils" class = "net.practise10.springxmlcrudwithtransaction.utils.ConnecitonUtils">
             <property name="dataSource" ref="dataSource"></property>
         </bean>
 
     <!--配置事务管理器-->
-    <bean id = "transactionManager" class="net.practise10.proxy.springxmlcrudwithtransaction.utils.TransactionManager">
+    <bean id = "transactionManager" class="net.practise10.springxmlcrudwithtransaction.utils.TransactionManager">
         <property name="connecitonUtils" ref="connecitonUtils"></property>
     </bean>
 </beans>

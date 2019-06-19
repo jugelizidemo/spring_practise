@@ -1,4 +1,4 @@
-package net.practise10.proxy.springxmlcrudwithtransaction.domain;
+package net.practise10.springxmlcrudwithtransaction.domain;
 
 /**
  * Created by admin on 2019/6/13.

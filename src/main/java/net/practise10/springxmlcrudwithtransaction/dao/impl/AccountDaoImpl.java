@@ -1,8 +1,8 @@
-package net.practise10.proxy.springxmlcrudwithtransaction.dao.impl;
+package net.practise10.springxmlcrudwithtransaction.dao.impl;
 
-import net.practise10.proxy.springxmlcrudwithtransaction.dao.AccountDao;
-import net.practise10.proxy.springxmlcrudwithtransaction.domain.Account;
-import net.practise10.proxy.springxmlcrudwithtransaction.utils.ConnecitonUtils;
+import net.practise10.springxmlcrudwithtransaction.dao.AccountDao;
+import net.practise10.springxmlcrudwithtransaction.domain.Account;
+import net.practise10.springxmlcrudwithtransaction.utils.ConnecitonUtils;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;

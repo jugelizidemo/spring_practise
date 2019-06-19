@@ -1,4 +1,4 @@
-package net.practise10.proxy.springxmlcrudwithtransaction.utils;
+package net.practise10.springxmlcrudwithtransaction.utils;
 import javax.sql.DataSource;
 import java.sql.Connection;
 

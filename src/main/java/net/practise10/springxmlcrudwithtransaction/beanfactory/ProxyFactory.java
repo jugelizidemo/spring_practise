@@ -1,7 +1,7 @@
-package net.practise10.proxy.springxmlcrudwithtransaction.beanfactory;
+package net.practise10.springxmlcrudwithtransaction.beanfactory;
 
-import net.practise10.proxy.springxmlcrudwithtransaction.service.AccountService;
-import net.practise10.proxy.springxmlcrudwithtransaction.utils.TransactionManager;
+import net.practise10.springxmlcrudwithtransaction.service.AccountService;
+import net.practise10.springxmlcrudwithtransaction.utils.TransactionManager;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -46,7 +46,7 @@ public class ProxyFactory {
                     * AOP中的概念:
                     * 1.Joinpoint(连接点):被拦截到的方法
                     * 2.Pointcut(切入点):被拦截到的方法且需要功能增强的方法
-                    * 3.Advice(通知/增强)AOP中的通知:整个invoke方法在执行就是环绕通知,invoke方法中有明确的切入点方法调用
+                    * 3.Advice(通知/增强):AOP中的通知,整个invoke方法在执行就是环绕通知,invoke方法中有明确的切入点方法调用
                     * 4.Introduction(引介)
                     * 5.Target(目标对象):代理的目标对象
                     * 6.Weaving(织入):把增强应用到目标对象来创建新的代理对象的过程
