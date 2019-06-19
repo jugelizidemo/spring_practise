@@ -12,6 +12,8 @@ public class AccountTest {
         ApplicationContext ac = new ClassPathXmlApplicationContext("practise11springaop.xml");
         AccountService as = ac.getBean("accountService",AccountService.class);
         as.saveAccount();
+        as.updateAccount(1000);
+        as.deleteAccount();
     }
 
 }

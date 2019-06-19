@@ -10,8 +10,8 @@ public class AccountServiceImpl implements AccountService {
         System.out.println("保存账户...");
     }
 
-    public void updateAccount() {
-        System.out.println("更新账户...");
+    public void updateAccount(Integer money) {
+        System.out.println("更新账户..." + money);
     }
 
     public void deleteAccount() {
