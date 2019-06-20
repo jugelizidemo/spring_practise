@@ -70,13 +70,13 @@
            <aop:aspect id = "logAdvice" ref = "logger">
                <!--配置通知的类型,并且建立通知方法和切入点方法的关联-->
                <!--前置通知,在切入点方法执行之前执行-->
-               <aop:before method="beforePrintLog" pointcut-ref="ptc"></aop:before>
-               <!--后置通知,在切入点方法正常执行后执行,和异常通知永远互斥执行-->
+<!--               <aop:before method="beforePrintLog" pointcut-ref="ptc"></aop:before>
+               &lt;!&ndash;后置通知,在切入点方法正常执行后执行,和异常通知永远互斥执行&ndash;&gt;
                <aop:after-returning method="afterPrintLog" pointcut-ref="ptc"></aop:after-returning>
-               <!--异常通知,在切入点方法执行产生异常后执行,与后置通知永远互斥执行-->
+               &lt;!&ndash;异常通知,在切入点方法执行产生异常后执行,与后置通知永远互斥执行&ndash;&gt;
                <aop:after-throwing method="exceptionPrintLog" pointcut-ref="ptc"></aop:after-throwing>
-               <!--最终通知,无论切入点方法是否正常执行都会在其后面执行-->
-               <aop:after method="finalPrintLog" pointcut-ref="ptc"></aop:after>
+               &lt;!&ndash;最终通知,无论切入点方法是否正常执行都会在其后面执行&ndash;&gt;
+               <aop:after method="finalPrintLog" pointcut-ref="ptc"></aop:after>-->
 
                <!--环绕通知,具体功能看aroundPrintLog()方法-->
                <aop:around method="aroundPrintLog" pointcut-ref="ptc"></aop:around>
