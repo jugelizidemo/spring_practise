@@ -11,8 +11,8 @@
         <property name="driverClass" value = "com.mysql.jdbc.Driver"></property>
         <property name="jdbcUrl" value = "jdbc:mysql://localhost:3306/hxl"></property>
         <property name="user" value ="root"></property>
-        <property name="password" value ="claacgs"></property>
-       <!-- <property name="password" value ="1988926he"></property>-->
+       <!-- <property name="password" value ="claacgs"></property>-->
+        <property name="password" value ="1988926he"></property>
     </bean>
 
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
@@ -20,5 +20,12 @@
     </bean>
 
 
+    <bean id="accountDao" class="net.practise15.springjdbctemplate.dao.impl.AccountDaoImpl">
+        <property name="jdbcTemplate" ref="jdbcTemplate"></property>
+    </bean>
+
+    <bean id="AccountService" class="net.practise15.springjdbctemplate.service.impl.AccountServiceImpl">
+        <property name="accountDao" ref="accountDao"></property>
+    </bean>
 
 </beans>

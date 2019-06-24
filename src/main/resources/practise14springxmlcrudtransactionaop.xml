@@ -41,8 +41,8 @@
         <property name="driverClass" value = "com.mysql.jdbc.Driver"></property>
         <property name="jdbcUrl" value = "jdbc:mysql://localhost:3306/hxl"></property>
         <property name="user" value ="root"></property>
-        <property name="password" value ="claacgs"></property>
-       <!-- <property name="password" value ="1988926he"></property>-->
+       <!-- <property name="password" value ="claacgs"></property>-->
+        <property name="password" value ="1988926he"></property>
     </bean>
 
     <!--配置AOP精简写法-->
